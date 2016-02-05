@@ -1,0 +1,14 @@
+#date_lable {
+  width: 200px;
+  height: 50px;
+  float: left;
+}
+#issue_lable {
+  height: 50px;
+  width: 130px;
+  margin-left: 200px;
+}
+#card {
+  float: left;
+  margin: 10px 10px 10px 10px;
+}

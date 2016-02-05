@@ -1,0 +1,78 @@
+<html>
+<head>
+<meta http-equiv="refresh" content="30">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="./_css/dash.css">
+</head>
+<body>
+<p id="card">
+<script>
+function timeSince(date) {
+
+    date = Date.parse(date);
+
+    var seconds = Math.floor((new Date() - date) / 1000);
+
+    var interval = Math.floor(seconds / 31536000);
+
+    if (interval > 1) {
+        return interval + " years";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+        return interval + " months";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+        return interval + " days";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+        return interval + " hours";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+        return interval + " minutes";
+    }
+    return Math.floor(seconds) + " seconds";
+}
+
+
+
+//TODO Read JSON data from a URL
+var data = '{ "project" : [' +
+           '{"title":"B2C-SAST","date":"Fri Feb 5 07:59:37 MST 2016","issues":"652 issues","status":"blue"},' +
+           '{"title":"B2B","date":"Thu Jan 4 1:4:35 MST 2016","issues":"26 issues","status":"blue"},' +
+           '{"title":"B2E","date":"Thu Feb 4 15:54:35 MST 2016","issues":"5 issues","status":"blue"},' +
+           '{"title":"Android","date":"Thu Feb 4 15:54:35 MST 2016","issues":"53 issues","status":"blue"},' +
+           '{"title":"iOS","date":"Thu Feb 4 15:54:35 MST 2016","issues":"5 issues","status":"blue"},' +
+           '{"title":"MobID","date":"Thu Feb 4 15:54:35 MST 2016","issues":"5 issues","status":"blue"},' +
+           '{"title":"Quote","date":"Thu Feb 4 15:54:35 MST 2016","issues":"239 issues","status":"blue"} ]}';
+//var data = $.getJSON("example.json", function() {
+//	console.log("Got the JSON");
+//	})
+
+var mydata = JSON.parse(data);
+
+var i;
+var key = mydata.project.length;
+var text = "";
+
+for (i=0; i<key; i++) {
+
+       var timeAgo = 0;
+
+       timeAgo = timeSince(mydata.project[i].date);
+
+       text += '<div id="card" class="w3-card-4"><header class="w3-container w3-' +
+                mydata.project[i].status + '"><h1><center>' +
+                mydata.project[i].title + '</center></h1></header><br><div id="date_lable" class="w3-container">' +
+                timeAgo + ' ago</div><div id="issue_lable" class="w3-container">' +
+                mydata.project[i].issues + '</div> </div>';
+}
+document.getElementById("card").innerHTML = text;
+
+</script>
+</body>
+</html>
