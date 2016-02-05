@@ -1,10 +1,10 @@
 { "project" : [
 		   {"title":"B2C-SAST","date":"Fri Feb 5 07:59:37 2016","issues":"652 issues","status":"blue"},
            {"title":"B2B","date":"2/5/2016 08:27:00","issues":"26 issues","status":"blue"},
-           {"title":"B2E","date":"1/1/2016 0:0:0","issues":"5 issues","status":"blue"},
+           {"title":"B2E","date":"1/1/2016 0:0:0","issues":"5 issues","status":"green"},
            {"title":"Android","date":"December 17, 2015 03:24:00","issues":"53 issues","status":"blue"},
-           {"title":"iOS","date":"2/4/2016 5:00:00","issues":"5 issues","status":"blue"},
-           {"title":"MobID","date":"2/4/2016 5:00:00","issues":"5 issues","status":"blue"},
-           {"title":"Quote","date":"2/5/2016 7:00:00","issues":"239 issues","status":"blue"}
+           {"title":"iOS","date":"2/4/2016 5:00:00","issues":"5 issues","status":"red"},
+           {"title":"MobID","date":"2/4/2016 5:00:00","issues":"5 issues","status":"yellow"},
+           {"title":"Quote","date":"2/5/2016 7:00:00","issues":"239 issues","status":"red"}
 	]
 }
