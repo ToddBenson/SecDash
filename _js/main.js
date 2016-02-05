@@ -1,6 +1,8 @@
 $(document).ready(function(){
     cards();
 
+//TODO WHat is a change in status?
+var status = "green";
 
 function timeSince(date) {
 
@@ -9,10 +11,12 @@ function timeSince(date) {
     var interval = Math.floor(seconds / 31536000);
 
     if (interval > 1) {
+	status = "yellow";
         return interval + " years";
     }
     interval = Math.floor(seconds / 2592000);
     if (interval > 1) {
+        status = "yellow";
         return interval + " months";
     }
     interval = Math.floor(seconds / 86400);
@@ -31,6 +35,7 @@ function timeSince(date) {
 }
 
 
+//TODO From multiple JSON sources
 function cards() {
     $.getJSON("./example.json", function(mydata) {
 
@@ -41,10 +46,9 @@ function cards() {
 	for (i=0; i<key; i++) {
 
            var timeAgo = 0;
-	   var status = "blue";
            timeAgo = timeSince(mydata.project[i].date);
            text += '<div id="card" class="w3-card-4"><header class="w3-container w3-' +
-                mydata.project[i].status + '"><h1><center>' +
+                status + '"><h1><center>' +
                 mydata.project[i].title + '</center></h1></header><br><div id="date_lable" class="w3-container">' +
                 timeAgo + ' ago</div><div id="issue_lable" class="w3-container">' +
                 mydata.project[i].issues + '</div> </div>';
