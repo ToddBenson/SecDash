@@ -98,9 +98,26 @@ function cards() {
                 status + '"><h1><center>' +
                 mydata.project[i].title + '</center></h1></header><br><div id="date_lable" class="w3-container">' +
                 timeAgo + ' ago</div><div id="issue_lable" class="w3-container">' +
-                mydata.project[i].issues + '</div> </div>';
+                mydata.project[i].issues + '</div></div>';
         }
         document.getElementById("card2").innerHTML = text;
+        })
+    $.getJSON("./json/sast.json",function(mydata) {
+	var i;
+	var key = mydata.project.length;
+	var text = "";
+
+	for (i = 0; i < key - 1; i++) {
+
+           var timeAgo = 0;
+           timeAgo = timeSince(mydata.project[i].date);
+           text += '<div id="card" class="w3-card-4"><header class="w3-container w3-' +
+                status + '"><h1><center>' +
+                mydata.project[i].title + '</center></h1></header><br><div id="date_lable" class="w3-container">' +
+                timeAgo + ' ago</div><div id="issue_lable" class="w3-container">' +
+                mydata.project[i].issues + '</div> </div>';
+        }
+        document.getElementById("card3").innerHTML = text;
         })
 
 }
